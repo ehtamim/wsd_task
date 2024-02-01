@@ -41,8 +41,11 @@ public class start {
                ps.print("Please choose an account type 1/Current 2/Saving 3/Salary :");
                int acctype= sc.nextInt();
                acc.setAccountType(acctype);
-               ps.print("Please enter account Name :");
-               String accName=sc.nextLine();
+               ps.print("Please enter First Name :");
+               String accFirstName=sc.next();
+               ps.print("Please enter Last Name :");
+               String accLastName=sc.next();
+               String accName=accFirstName+" "+accLastName;
                acc.setAccountName(accName);
                ps.print("Please enter account Number :");
                int accNumber= sc.nextInt();
@@ -81,8 +84,11 @@ public class start {
                ps.println("You choose to update an account");
                ps.print("Please enter account Number you want to update:");
                int updateAccountNumber= sc.nextInt();
-               ps.print("Please enter account Name: ");
-               String updateAccountName= sc.nextLine();
+               ps.print("Please enter account First Name: ");
+               String updateFirstName= sc.next();
+               ps.print("Please enter account Last Name : ");
+               String updateLastName= sc.next();
+               String updateAccountName=updateFirstName+" "+updateLastName;
                ps.print("Please choose an account type 1/Current 2/Saving 3/Salary :");
                int updateAccountType= sc.nextInt();
                acc.updateAccountDetails(updateAccountNumber,updateAccountName,updateAccountType);

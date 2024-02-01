@@ -72,12 +72,31 @@ public class account
     public void updateAccountDetails(int accNumber, String accName, int accType)
     {
         int valid=0;
+        String updateAccountType="";
+        if(accType==1)
+        {
+            updateAccountType="Current";
+        }
+        else if (accType==2)
+        {
+            updateAccountType="Saving";
+        }
+        else if (accType==3)
+        {
+            updateAccountType="Salary";
+        }
+        else
+        {
+            updateAccountType="Current";
+        }
+        
         for(int i=0; i<accounts.size(); i++)
         {
             if(accounts.get(i).accountNumber==accNumber)
             {
-                accounts.set(i, new account(accName,accNumber,accounts.get(i).balance,accounts.get(i).creationDate,accountType));
+                accounts.set(i, new account(accName,accNumber,accounts.get(i).balance,accounts.get(i).creationDate,updateAccountType));
                 pl.println("Account was Updated");
+                valid=1;
             }
         }
         if(valid==0)
@@ -188,35 +207,4 @@ public class account
             pl.println("No account was found");
         }
     }
-	
-	//public abstract void showInfo();
-	
-	/*public void deposit(double amount)
-	{
-		if(amount>0)
-		{
-			System.out.println("Previous Balance: "+ balance);
-			System.out.println("Deposit Amount: "+ amount);
-			balance += amount;
-			System.out.println("Current Balance: "+ balance);
-		}
-		else
-		{
-			System.out.println("Can Not Deposit");
-		}
-	}
-	public void withdraw(double amount)
-	{
-		if(amount>0 && amount<=balance)
-		{
-			System.out.println("Previous Balance:	"+ balance);
-			System.out.println("Withdraw Amount:	"+ amount);
-			balance -= amount;
-			System.out.println("Current Balance:	"+ balance);
-		}
-		else
-		{
-			System.out.println("Can Not Withdraw");
-		}
-	}*/
 }
